@@ -37,12 +37,11 @@ namespace PracticeExercises
         {
             return side1Length + side2Length + side3Length;
         }
-        public static double CalculateArea(double side1Length, double side2Length, double side3Length)
+        public static long CalculateArea(double side1Length, double side2Length, double side3Length)
         {
 
-            double s = (side1Length + side2Length + side3Length) / 2;
-            return Math.Sqrt(s * (s - side1Length) * (s - side2Length) * (s - side3Length));
-
+            long s = ((long)side1Length + (long)side2Length + (long)side3Length) / 2;
+            return (long)Math.Sqrt(s * (s - side1Length) * (s - side2Length) * (s - side3Length));
         }
     }
 }
