@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PracticeExercises
 {
@@ -13,7 +11,7 @@ namespace PracticeExercises
             bool playAgain = true;
             do
             {
-                TwelveDaysOfChristmasSinger();
+                NumberSummer();
 
                 Console.Write("Continue? (y/n): ");
                 playAgain = PlayAgain();
@@ -332,6 +330,176 @@ namespace PracticeExercises
                 {
                     Console.WriteLine($"{number} {actors[i]}");
                     i++;
+                }
+            }
+        }
+
+        // Exercise 37
+        public static void ArraySum()
+        {
+            int[] array = { };
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter a number: ");
+                int input = int.Parse(Console.ReadLine());
+                array = array.Append(input).ToArray();
+            }
+            Console.WriteLine($"{array[0]} + {array[1]} + {array[2]} + " +
+                $"{array[3]} + {array[4]} = {array.Sum()} ");
+        }
+
+        // Exercise 38
+        public static void ArrayAverage()
+        {
+            int[] array = { };
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter a number: ");
+                int input = int.Parse(Console.ReadLine());
+                array = array.Append(input).ToArray();
+            }
+            Console.WriteLine($"({array[0]} + {array[1]} + {array[2]} + " +
+                $"{array[3]} + {array[4]}) /5 = {array.Average()}");
+        }
+
+        // Exercise 39
+        public static void ArraySorter()
+        {
+            int[] array = { };
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter a number: ");
+                int input = int.Parse(Console.ReadLine());
+                array = array.Append(input).ToArray();
+            }
+            Array.Sort(array);
+            Array.ForEach(array, x => Console.Write($"{x} "));
+        }
+
+        // Exercise 40
+        public static void ArrayMedian()
+        {
+            int[] array = { };
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter a number: ");
+                int input = int.Parse(Console.ReadLine());
+                array = array.Append(input).ToArray();
+            }
+            Array.Sort(array);
+            Console.WriteLine($"The median of ({array[0]}, {array[1]}, {array[2]}, " +
+                $"{array[3]}, {array[4]}) is {array[2]}.");
+        }
+
+        // Exercise 41
+        public static void Divider()
+        {
+            Console.Write("Enter a number: ");
+            double input1 = double.Parse(Console.ReadLine());
+            Console.Write("Enter another number: ");
+            double input2 = double.Parse(Console.ReadLine());
+            if (input2 == 0)
+            {
+                Console.WriteLine("You cannot divide by 0.");
+            }
+            else
+            {
+                Console.WriteLine($"{input1}/{input2} is approximately " +
+                    $"{ Math.Round((input1 / input2), 2)}.");
+            }
+        }
+
+        // Exercise 42
+        public static void CreatePoint()
+        {
+            Console.Write("Enter an X coordinate: ");
+            double userX = double.Parse(Console.ReadLine());
+            Console.Write("Enter an Y coordinate: ");
+            double userY = double.Parse(Console.ReadLine());
+
+            Point userPoint = new Point(-1, -1);
+            userPoint.X = userX;
+            userPoint.Y = userY;
+
+            Console.WriteLine($"You have created a point object ({userX},{userY}).");
+        }
+
+        // Exercise 43
+        public static void CreatePointFindDistance()
+        {
+            Point userPoint = new Point(-1, -1);
+            Console.Write("Enter an X coordinate: ");
+            userPoint.X = double.Parse(Console.ReadLine());
+            Console.Write("Enter an Y coordinate: ");
+            userPoint.Y = double.Parse(Console.ReadLine());
+
+            Console.WriteLine($"You have created a point object ({userPoint.X},{userPoint.Y}). " +
+                $"It has a distance of { Point.CalculateDistance(userPoint.X, userPoint.Y) }.");
+        }
+
+        // Exercise 44
+        public static void FindMidpoint()
+        {
+            Point userPoint1 = new Point(-1, -1);
+            Console.Write("Enter coordinates for a point: ");
+            string input1 = Console.ReadLine();
+            double[] userPointArray1 = input1.Split(' ').Select(double.Parse).ToArray();
+            userPoint1.X = userPointArray1[0];
+            userPoint1.Y = userPointArray1[1];
+
+            Point userPoint2 = new Point(-1, -1);
+            Console.Write("Enter coordinates for another point: ");
+            string input2 = Console.ReadLine();
+            double[] userPointArray2 = input2.Split(' ').Select(double.Parse).ToArray();
+            userPoint2.X = userPointArray2[0];
+            userPoint2.Y = userPointArray2[1];
+
+            double averageX = (userPoint1.X + userPoint2.X) / 2;
+            double averageY = (userPoint1.Y + userPoint2.Y) / 2;
+
+            Console.WriteLine($"The midpoint between ({userPoint1.X},{userPoint1.Y}) and " +
+                $"({userPoint2.X},{userPoint2.Y}) is ({averageX},{averageY}).");
+        }
+
+        // Exercise 47
+        public static void SentenceBuilder()
+        {
+            List<string> wordList = new List<string>();
+            bool quit = false;
+            while (!quit)
+            {
+                Console.Write("Please enter a word (q to quit): ");
+                string input = Console.ReadLine();
+                if (input.ToLower().Trim() == "q")
+                {
+                    quit = true;
+                    Console.WriteLine("Thanks for playing!");
+                }
+                else
+                {
+                    wordList.Add(input);
+                    Console.WriteLine(String.Join(" ", wordList));
+                }
+            }
+        }
+
+        // Exercise 48
+        public static void NumberSummer()
+        {
+            List<int> numberList = new List<int>();
+            bool quit = false;
+            while (!quit)
+            {
+                Console.Write("Please enter a number (q to quit): ");
+                string input = Console.ReadLine();
+                if (input.ToLower().Trim() == "q")
+                {
+                    quit = true;
+                    Console.WriteLine($"{ String.Join(" + ", numberList) } = { numberList.Sum() }");
+                }
+                else
+                {
+                    numberList.Add(int.Parse(input));
                 }
             }
         }

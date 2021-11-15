@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PracticeExercises
 {
-    class Triangle
+    public class Triangle
     {
         private double side1Length;
         public double Side1Length
